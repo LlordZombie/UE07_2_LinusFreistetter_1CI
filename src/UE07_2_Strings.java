@@ -4,6 +4,12 @@ public class UE07_2_Strings {
         System.out.println(leftJustified("abcde", 8));
         System.out.println(rightJustified("abcde", 8));
         System.out.println(midJustified("abcde", 4));
+        System.out.println(firstUppercase("aBCdE"));
+        System.out.println(containsOnlyChars("a-7", "asdf7hjkl-qewr"));
+        System.out.println(containsNotChars("a-7", "sdf7hjklqewr"));
+        System.out.println(clearLeadingZeros("00700"));
+        System.out.println(clearChars("ich mag erdbeeren nicht", "mag erdbeere"));
+        System.out.println(isStrongPassword("evi+franz!"));
     }
 
     public static String toSingleSpace(String s) {
@@ -54,7 +60,80 @@ public class UE07_2_Strings {
             return s;
         }
     }
-    public static String firstUppercase(String word){
+
+    public static String firstUppercase(String word) {
+        String firstLetter = "";
+        String restOfWord = word.substring(1);
+        firstLetter += word.charAt(0);
+        firstLetter = firstLetter.toUpperCase();
+        restOfWord = restOfWord.toLowerCase();
+        return firstLetter + restOfWord;
+    }
+
+    public static boolean containsOnlyChars(String s, String chars) {
+        String singleLetter;
+        for (int i = 0; i < s.length(); i++) {
+            singleLetter = String.valueOf(s.charAt(i));
+            if (!chars.contains(singleLetter)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean containsNotChars(String s, String forbiddenChars) {
+        String singleLetter;
+        for (int i = 0; i < s.length(); i++) {
+            singleLetter = String.valueOf(s.charAt(i));
+            if (forbiddenChars.contains(singleLetter)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static String clearLeadingZeros(String number) {
+        int i = 0;
         String rString = "";
+        if (containsOnlyChars("number", "0123456789")) {
+            while (number.charAt(i) == '0') {
+                i++;
+            }
+            rString += number.substring(i);
+            return rString;
+        } else {
+            return number;
+        }
+    }
+
+    public static String clearChars(String s, String allowedChars) {
+        String rString = "";
+        String singleLetter;
+        for (int i = 0; i < s.length(); i++) {
+            singleLetter = String.valueOf(s.charAt(i));
+            if (allowedChars.contains(singleLetter)) {
+                rString += singleLetter;
+            }
+        }
         return rString;
-}}
+    }
+
+    public static boolean isStrongPassword(String pwd) {
+        if (pwd.length() < 8) {
+            return false;
+        }
+        int isChar = 0;
+        int notChar = 0;
+        for (int i = 0; i < pwd.length(); i++) {
+            if (Character.isLetter(pwd.charAt(i))) {
+                isChar++;
+            } else {
+                notChar++;
+            }
+            if (notChar * 2 <= isChar) {
+                return false;
+            }else{return true;}
+        }return true;
+    }
+
+}
