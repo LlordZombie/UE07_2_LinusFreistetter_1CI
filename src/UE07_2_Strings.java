@@ -132,8 +132,11 @@ public class UE07_2_Strings {
             }
             if (notChar * 2 <= isChar) {
                 return false;
-            }else{return true;}
-        }return true;
+            } else {
+                return true;
+            }
+        }
+        return true;
     }
 
 }
