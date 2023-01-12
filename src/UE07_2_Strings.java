@@ -8,7 +8,7 @@ public class UE07_2_Strings {
         System.out.println(containsOnlyChars("a-7", "asdf7hjkl-qewr"));
         System.out.println(containsNotChars("a-7", "sdf7hjklqewr"));
         System.out.println(clearLeadingZeros("00700"));
-        System.out.println(clearChars("ich mag erdbeeren nicht", "mag erdbeere"));
+        System.out.println(clearChars("ICH BIN kEIN WAPPLER", "ICH BN  E WAPPLR"));
         System.out.println(isStrongPassword("evi+franz!"));
     }
 
