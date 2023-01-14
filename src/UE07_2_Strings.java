@@ -8,7 +8,7 @@ public class UE07_2_Strings {
         System.out.println(containsOnlyChars("a-7", "asdf7hjkl-qewr"));
         System.out.println(containsNotChars("a-7", "sdf7hjklqewr"));
         System.out.println(clearLeadingZeros("00700"));
-        System.out.println(clearChars("ICH BIN kEIN WAPPLER", "ICH BN  E WAPPLR"));
+        System.out.println(clearChars("ich mag erdbeeren nicht", "mag erdbeere"));
         System.out.println(isStrongPassword("evi+franz!"));
     }
 
@@ -95,7 +95,7 @@ public class UE07_2_Strings {
     public static String clearLeadingZeros(String number) {
         int i = 0;
         String rString = "";
-        if (containsOnlyChars("number", "0123456789")) {
+        if (containsOnlyChars(number, "0123456789")) {
             while (number.charAt(i) == '0') {
                 i++;
             }
@@ -132,11 +132,8 @@ public class UE07_2_Strings {
             }
             if (notChar * 2 <= isChar) {
                 return false;
-            } else {
-                return true;
-            }
-        }
-        return true;
+            }else{return true;}
+        }return true;
     }
 
 }
