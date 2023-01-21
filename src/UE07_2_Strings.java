@@ -3,7 +3,7 @@ public class UE07_2_Strings {
         System.out.println(toSingleSpace("Ein Text      mit vielen   Leerzeichen"));
         System.out.println(leftJustified("abcde", 8));
         System.out.println(rightJustified("abcde", 8));
-        System.out.println(midJustified("abcde", 4));
+        System.out.println(midJustified("abcde", 8));
         System.out.println(firstUppercase("aBCdE"));
         System.out.println(containsOnlyChars("a-7", "asdf7hjkl-qewr"));
         System.out.println(containsNotChars("a-7", "sdf7hjklqewr"));
@@ -43,14 +43,15 @@ public class UE07_2_Strings {
 
     public static String midJustified(String s, int length) {
         String rString = "";
+        int numberOfSpaces = length-s.length();
         if (s.length() < length) {
-            for (int i = 0; i < length - s.length(); i++) {
+            for (int i = 0; i < numberOfSpaces; i++) {
                 if (i % 2 == 0) {
                     rString += " ";
                 }
             }
             rString += s;
-            for (int i = 0; i < length - s.length(); i++) {
+            for (int i = 0; i < numberOfSpaces; i++) {
                 if (i % 2 == 1) {
                     rString += " ";
                 }
@@ -135,5 +136,6 @@ public class UE07_2_Strings {
             }else{return true;}
         }return true;
     }
+
 
 }
